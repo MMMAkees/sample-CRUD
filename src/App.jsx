@@ -12,6 +12,7 @@ function App() {
         "https://jsonplaceholder.typicode.com/users",
       );
       const data = await response.json();
+      console.log(data);
       setUsers(data);
     } catch (error) {
       console.log(error);
@@ -147,6 +148,9 @@ function App() {
                 <th className="p-3 text-left">ID</th>
                 <th className="p-3 text-left">Name</th>
                 <th className="p-3 text-left">Email</th>
+                <th className="p-3 text-left">Username</th>
+                <th className="p-3 text-left">address</th>
+                
                 <th className="p-3 text-center">Actions</th>
               </tr>
             </thead>
@@ -157,6 +161,8 @@ function App() {
                   <td className="p-3">{user.id}</td>
                   <td className="p-3">{user.name}</td>
                   <td className="p-3">{user.email}</td>
+                  <td className="p-3">{user.username}</td>
+                  <td className="p-3">{user.address.city}</td>
 
                   <td className="p-3 text-center space-x-2">
                     <button
