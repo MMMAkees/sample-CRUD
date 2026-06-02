@@ -9,7 +9,7 @@ function App() {
   const fetchUsers = async () => {
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
+        "https://jsonplaceholder.typicode.com/users",
       );
       const data = await response.json();
       setUsers(data);
@@ -37,7 +37,7 @@ function App() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ name, email }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -70,16 +70,12 @@ function App() {
             name,
             email,
           }),
-        }
+        },
       );
 
       const data = await response.json();
 
-      setUsers(
-        users.map((user) =>
-          user.id === editId ? data : user
-        )
-      );
+      setUsers(users.map((user) => (user.id === editId ? data : user)));
 
       setEditId(null);
       setName("");
@@ -91,12 +87,9 @@ function App() {
 
   const deleteUser = async (id) => {
     try {
-      await fetch(
-        `https://jsonplaceholder.typicode.com/users/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+        method: "DELETE",
+      });
 
       setUsers(users.filter((user) => user.id !== id));
     } catch (error) {
@@ -160,10 +153,7 @@ function App() {
 
             <tbody>
               {users.map((user) => (
-                <tr
-                  key={user.id}
-                  className="border-b hover:bg-gray-50"
-                >
+                <tr key={user.id} className="border-b hover:bg-gray-50">
                   <td className="p-3">{user.id}</td>
                   <td className="p-3">{user.name}</td>
                   <td className="p-3">{user.email}</td>
