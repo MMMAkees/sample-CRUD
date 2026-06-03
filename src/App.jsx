@@ -85,13 +85,13 @@ function App() {
     }
   };
 
-  const deleteUser = async (id) => {
+  const deleteUser = async (id) => { // delete user from API and update state
     try {
-      await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+      await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, { // jsonplaceholder doesn't actually delete, but we can still update our state to reflect the deletion
         method: "DELETE",
       });
 
-      setUsers(users.filter((user) => user.id !== id));
+      setUsers(users.filter((user) => user.id !== id)); // remove user from state
     } catch (error) {
       console.log(error);
     }
