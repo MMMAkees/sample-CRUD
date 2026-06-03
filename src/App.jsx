@@ -22,7 +22,7 @@ function App() {
     fetchUsers();
   }, []);
 
-  const addUser = async () => {
+  const addUser = async () => { // check if name and email are not empty
     if (!name || !email) {
       alert("Please fill all fields");
       return;
