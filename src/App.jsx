@@ -6,7 +6,7 @@ function App() {
   const [email, setEmail] = useState("");
   const [editId, setEditId] = useState(null);
 
-  const fetchUsers = async () => {
+  const fetchUsers = async () => { // fetch users from API and set state
     try {
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/users",
