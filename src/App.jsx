@@ -56,7 +56,7 @@ function App() {
     setEditId(user.id);
   };
 
-  const updateUser = async () => {
+  const updateUser = async () => { // check if name and email are not empty
     try {
       const response = await fetch(
         `https://jsonplaceholder.typicode.com/users/${editId}`,
@@ -73,9 +73,9 @@ function App() {
         },
       );
 
-      const data = await response.json();
+      const data = await response.json(); // update the user in the users array
 
-      setUsers(users.map((user) => (user.id === editId ? data : user)));
+      setUsers(users.map((user) => (user.id === editId ? data : user))); // reset form and editId
 
       setEditId(null);
       setName("");
